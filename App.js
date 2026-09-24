@@ -1,0 +1,629 @@
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Platform,
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import SvgIcon from './imgs/icons';
+
+export default function App() {
+  const [currentTab, setCurrentTab] = useState('AllApps'); // 'Home', 'AllApps', 'Gold', 'Game', 'Profile'
+
+  const renderCurrentScreen = () => {
+    switch (currentTab) {
+      case 'AllApps':
+        return <AllAppsScreen />;
+      case 'Profile':
+        return <ProfileScreen />;
+      default:
+        return (
+          <View style={styles.placeholderContainer}>
+            <SvgIcon
+              name={
+                currentTab === 'Home'
+                  ? 'ic_tab_home'
+                  : currentTab === 'Gold'
+                    ? 'ic_tab_gold'
+                    : 'ic_tab_game'
+              }
+              width={64}
+              height={64}
+              color="#0066CC"
+            />
+            <Text style={styles.placeholderTitle}>{currentTab} Screen</Text>
+            <Text style={styles.placeholderSubtitle}>
+              This screen is under construction. Please switch to All Apps or Profile.
+            </Text>
+          </View>
+        );
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.safeContainer}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+
+      {/* Main Content Area */}
+      <View style={styles.contentContainer}>{renderCurrentScreen()}</View>
+
+      {/* Bottom Navigation Bar */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity
+          onPress={() => setCurrentTab('Home')}
+          style={styles.navItem}
+          activeOpacity={0.7}
+        >
+          <SvgIcon
+            name={currentTab === 'Home' ? 'ic_tab_home_active' : 'ic_tab_home'}
+            width={24}
+            height={24}
+            color={currentTab === 'Home' ? '#0066CC' : '#8E8E93'}
+          />
+          <Text style={[styles.navText, currentTab === 'Home' && styles.navTextActive]}>
+            Home
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setCurrentTab('AllApps')}
+          style={styles.navItem}
+          activeOpacity={0.7}
+        >
+          <SvgIcon
+            name={currentTab === 'AllApps' ? 'ic_tab_all_apps_active' : 'ic_tab_all_apps'}
+            width={24}
+            height={24}
+            color={currentTab === 'AllApps' ? '#0066CC' : '#8E8E93'}
+          />
+          <Text style={[styles.navText, currentTab === 'AllApps' && styles.navTextActive]}>
+            All Apps
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setCurrentTab('Gold')}
+          style={styles.navItem}
+          activeOpacity={0.7}
+        >
+          <SvgIcon
+            name={currentTab === 'Gold' ? 'ic_tab_gold_active' : 'ic_tab_gold'}
+            width={24}
+            height={24}
+            color={currentTab === 'Gold' ? '#0066CC' : '#8E8E93'}
+          />
+          <Text style={[styles.navText, currentTab === 'Gold' && styles.navTextActive]}>
+            Gold
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setCurrentTab('Game')}
+          style={styles.navItem}
+          activeOpacity={0.7}
+        >
+          <SvgIcon
+            name={currentTab === 'Game' ? 'ic_tab_game_active' : 'ic_tab_game'}
+            width={24}
+            height={24}
+            color={currentTab === 'Game' ? '#0066CC' : '#8E8E93'}
+          />
+          <Text style={[styles.navText, currentTab === 'Game' && styles.navTextActive]}>
+            Game
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => setCurrentTab('Profile')}
+          style={styles.navItem}
+          activeOpacity={0.7}
+        >
+          <SvgIcon
+            name={currentTab === 'Profile' ? 'ic_tab_profile_active' : 'ic_tab_profile'}
+            width={24}
+            height={24}
+            color={currentTab === 'Profile' ? '#0066CC' : '#8E8E93'}
+          />
+          <Text style={[styles.navText, currentTab === 'Profile' && styles.navTextActive]}>
+            Profile
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+// -------------------------------------------------------------
+// SCREEN 1: ALL APPS
+// -------------------------------------------------------------
+function AllAppsScreen() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const workItems = [
+    {
+      id: '1',
+      title: 'Approve Now',
+      desc: 'Notify managers of pending requests and allow managers to approve/reject requests from internal tools',
+      iconName: 'ic_app_approve_now',
+    },
+    {
+      id: '2',
+      title: 'Reward',
+      desc: 'Send colleagues a thank you note or reward Gold for exceptional contribution',
+      iconName: 'ic_app_reward',
+    },
+    {
+      id: '3',
+      title: 'Discipline',
+      desc: 'Send a discipline warning to subordinates for violation of codes of conduct',
+      iconName: 'ic_app_discipline',
+    },
+    {
+      id: '4',
+      title: 'Learning',
+      desc: 'View a list of mandatory, registered and suggested learning courses; check-in and send feedback for each course',
+      iconName: 'ic_app_learning',
+    },
+    {
+      id: '5',
+      title: 'My Tasks',
+      desc: 'Track daily personal tasks, workflows, and assignment status',
+      iconName: 'ic_app_my_tasks',
+    },
+  ];
+
+  const utilityItems = [
+    {
+      id: '6',
+      title: 'FPT Care',
+      desc: 'FPT Care insurance details and medical coverage',
+      iconName: 'ic_app_fpt_care',
+    },
+    {
+      id: '7',
+      title: 'Events',
+      desc: 'Register, check-in, check-out, send feedback to company events and programs',
+      iconName: 'ic_app_events',
+    },
+    {
+      id: '8',
+      title: 'Survey',
+      desc: 'Conduct and collect responses for company-wide or department-wide surveys',
+      iconName: 'ic_app_survey',
+    },
+    {
+      id: '9',
+      title: 'FPT Dating',
+      desc: 'Dating feature and social networking within company',
+      iconName: 'ic_app_fpt_dating',
+    },
+    {
+      id: '10',
+      title: 'Payslip',
+      desc: 'Monthly payslip and compensation statements',
+      iconName: 'ic_app_payslip',
+    },
+    {
+      id: '11',
+      title: 'Birthday',
+      desc: 'Your birthday is a special moment. We are very happy to send the best wishes for you.',
+      iconName: 'ic_app_birthday',
+    },
+  ];
+
+  const filterItems = (items) => {
+    if (!searchQuery.trim()) return items;
+    const query = searchQuery.toLowerCase();
+    return items.filter(
+      (item) =>
+        item.title.toLowerCase().includes(query) ||
+        item.desc.toLowerCase().includes(query)
+    );
+  };
+
+  const filteredWork = filterItems(workItems);
+  const filteredUtilities = filterItems(utilityItems);
+
+  const renderItem = (item) => (
+    <TouchableOpacity key={item.id} style={styles.appRow} activeOpacity={0.7}>
+      <View style={styles.appIconWrapper}>
+        <SvgIcon name={item.iconName} width={26} height={26} color="#0066CC" />
+      </View>
+      <View style={styles.appContent}>
+        <Text style={styles.appTitle}>{item.title}</Text>
+        <Text style={styles.appDesc} numberOfLines={2}>
+          {item.desc}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  return (
+    <ScrollView
+      contentContainerStyle={styles.scrollPadding}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* Top Search Header */}
+      <View style={styles.searchHeader}>
+        <View style={styles.searchBox}>
+          <SvgIcon name="ic_search" width={18} height={18} color="#8E8E93" style={{ marginRight: 8 }} />
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Type feature's name"
+            placeholderTextColor="#8E8E93"
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            clearButtonMode="while-editing"
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity onPress={() => setSearchQuery('')}>
+              <Ionicons name="close-circle" size={18} color="#8E8E93" />
+            </TouchableOpacity>
+          )}
+        </View>
+        <TouchableOpacity style={styles.gridBtn} activeOpacity={0.7}>
+          <SvgIcon name="ic_grid" width={24} height={24} color="#8E8E93" />
+        </TouchableOpacity>
+      </View>
+
+      <Text style={styles.screenHeading}>All Apps</Text>
+
+      {/* Group WORK */}
+      {filteredWork.length > 0 && (
+        <>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionHeaderText}>WORK</Text>
+          </View>
+          {filteredWork.map(renderItem)}
+        </>
+      )}
+
+      {/* Group UTILITIES */}
+      {filteredUtilities.length > 0 && (
+        <>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionHeaderText}>UTILITIES</Text>
+          </View>
+          {filteredUtilities.map(renderItem)}
+        </>
+      )}
+
+      {filteredWork.length === 0 && filteredUtilities.length === 0 && (
+        <View style={styles.emptyState}>
+          <SvgIcon name="ic_search" width={48} height={48} color="#C7C7CC" />
+          <Text style={styles.emptyText}>No features match "{searchQuery}"</Text>
+        </View>
+      )}
+    </ScrollView>
+  );
+}
+
+// -------------------------------------------------------------
+// SCREEN 2: PROFILE
+// -------------------------------------------------------------
+function ProfileScreen() {
+  const menuList = [
+    { id: '1', title: 'My Profile', iconName: 'ic_menu_my_profile' },
+    { id: '2', title: 'Settings', iconName: 'ic_menu_settings' },
+    { id: '3', title: 'Support', iconName: 'ic_menu_support' },
+    { id: '4', title: 'FAQ', iconName: 'ic_menu_faq' },
+    { id: '5', title: 'Admin', iconName: 'ic_menu_admin' },
+    { id: '6', title: 'Logout', iconName: 'ic_menu_logout' },
+  ];
+
+  return (
+    <ScrollView
+      contentContainerStyle={styles.scrollPadding}
+      showsVerticalScrollIndicator={false}
+    >
+      {/* Header Banner */}
+      <View style={styles.profileBanner}>
+        <View style={styles.avatarOverlap}>
+          <View style={styles.avatarCircle}>
+            <Text style={styles.avatarLetter}>K</Text>
+          </View>
+          <TouchableOpacity style={styles.cameraIconBadge} activeOpacity={0.8}>
+            <SvgIcon name="ic_camera_avatar" width={14} height={14} color="#555555" />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* User Info */}
+      <View style={styles.userInfoBox}>
+        <Text style={styles.userName}>Phạm Quang Khang (KHANGPQ3)</Text>
+        <Text style={styles.userRole}>(BM SE)</Text>
+      </View>
+
+      {/* Menu List */}
+      <View style={styles.menuContainer}>
+        {menuList.map((item) => (
+          <TouchableOpacity key={item.id} style={styles.menuRow} activeOpacity={0.7}>
+            <View style={styles.menuLeft}>
+              <SvgIcon
+                name={item.iconName}
+                width={22}
+                height={22}
+                color="#0066CC"
+                style={styles.menuIcon}
+              />
+              <Text style={styles.menuText}>{item.title}</Text>
+            </View>
+            <SvgIcon name="ic_chevron_right" width={18} height={18} color="#C7C7CC" />
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      {/* Footer Version Info */}
+      <View style={styles.versionFooter}>
+        <Text style={styles.versionText}>myFPT Version 5.9.10</Text>
+        <Text style={styles.versionText}>Copyright @ FPT Software 2021</Text>
+      </View>
+    </ScrollView>
+  );
+}
+
+// -------------------------------------------------------------
+// STYLESHEET
+// -------------------------------------------------------------
+const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 0,
+  },
+  contentContainer: {
+    flex: 1,
+  },
+  scrollPadding: {
+    paddingBottom: 70,
+  },
+  placeholderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+  },
+  placeholderTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#1C1C1E',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  placeholderSubtitle: {
+    fontSize: 14,
+    color: '#8E8E93',
+    textAlign: 'center',
+    lineHeight: 20,
+  },
+  // Search Header
+  searchHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 4,
+  },
+  searchBox: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F2F2F7',
+    paddingHorizontal: 12,
+    height: 40,
+    borderRadius: 10,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 15,
+    color: '#000000',
+    paddingVertical: 0,
+  },
+  gridBtn: {
+    marginLeft: 12,
+    padding: 6,
+  },
+  screenHeading: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#000000',
+    paddingHorizontal: 16,
+    marginTop: 12,
+    marginBottom: 8,
+  },
+  // Section Headers
+  sectionHeader: {
+    backgroundColor: '#F2F2F7',
+    paddingHorizontal: 16,
+    paddingVertical: 6,
+    marginTop: 8,
+  },
+  sectionHeaderText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#6C6C70',
+    letterSpacing: 0.8,
+  },
+  // App Row
+  appRow: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#E5E5EA',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+  },
+  appIconWrapper: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#EEF5FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  appContent: {
+    flex: 1,
+  },
+  appTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#1C1C1E',
+    marginBottom: 2,
+  },
+  appDesc: {
+    fontSize: 13,
+    color: '#6C6C70',
+    lineHeight: 17,
+  },
+  emptyState: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 40,
+  },
+  emptyText: {
+    marginTop: 12,
+    fontSize: 15,
+    color: '#8E8E93',
+  },
+  // Profile styles
+  profileBanner: {
+    height: 120,
+    backgroundColor: '#2F80ED',
+    alignItems: 'center',
+    position: 'relative',
+    marginBottom: 44,
+  },
+  avatarOverlap: {
+    position: 'absolute',
+    bottom: -36,
+    alignItems: 'center',
+  },
+  avatarCircle: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: '#DDF0FF',
+    borderWidth: 3,
+    borderColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  avatarLetter: {
+    fontSize: 34,
+    fontWeight: 'bold',
+    color: '#0066CC',
+  },
+  cameraIconBadge: {
+    position: 'absolute',
+    bottom: 2,
+    right: 2,
+    backgroundColor: '#F2F2F7',
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
+  },
+  userInfoBox: {
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    marginBottom: 16,
+  },
+  userName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000000',
+    marginBottom: 2,
+  },
+  userRole: {
+    fontSize: 13,
+    color: '#8E8E93',
+  },
+  menuContainer: {
+    marginTop: 8,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#E5E5EA',
+  },
+  menuRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 14,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#E5E5EA',
+    backgroundColor: '#FFFFFF',
+  },
+  menuLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  menuIcon: {
+    marginRight: 14,
+    width: 24,
+    textAlign: 'center',
+  },
+  menuText: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#1C1C1E',
+  },
+  versionFooter: {
+    alignItems: 'center',
+    marginTop: 28,
+    marginBottom: 20,
+  },
+  versionText: {
+    fontSize: 12,
+    color: '#8E8E93',
+    lineHeight: 18,
+  },
+  // Bottom Bar
+  bottomNav: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 60,
+    backgroundColor: '#FFFFFF',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#D1D1D6',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    elevation: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+  },
+  navItem: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  navText: {
+    fontSize: 10,
+    marginTop: 2,
+    color: '#8E8E93',
+  },
+  navTextActive: {
+    color: '#0066CC',
+    fontWeight: 'bold',
+  },
+});
