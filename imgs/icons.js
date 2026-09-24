@@ -40,7 +40,11 @@ export const SVG_ICONS = {
   "ic_tab_home": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22.0\" height=\"22.0\" viewBox=\"0 0 22.0 22.0\">\n  <path d=\"M17.705,20.582L4.292,20.582A1.917,1.917 0,0 1,2.375 18.669L2.375,8.822A3.435,3.435 0,0 1,3.391 6.51L9.643,1.942a2.017,2.017 0,0 1,2.714 0l6.251,4.568a3.436,3.436 0,0 1,1.016 2.312v9.847A1.919,1.919 0,0 1,17.705 20.582ZM9.705,10.4a0.5,0.5 0,0 0,-0.5 0.5v4.99a0.5,0.5 0,0 0,0.5 0.5L12.297,16.39a0.5,0.5 0,0 0,0.5 -0.5L12.797,10.901a0.5,0.5 0,0 0,-0.5 -0.5Z\" fill=\"#000000\" fill-opacity=\"0.4\" />\n</svg>",
   "ic_tab_home_active": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28.0\" height=\"28.0\" viewBox=\"0 0 28.0 28.0\">\n  <path d=\"M14,14m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0\" fill=\"#185ece\" stroke=\"#000000\" stroke-width=\"1.0\" />\n  <path d=\"M14,14m-13.5,0a13.5,13.5 0,1 1,27 0a13.5,13.5 0,1 1,-27 0\" fill=\"#000000\" fill-opacity=\"0\" stroke=\"#fafafa\" stroke-width=\"1.0\" />\n  <path d=\"M18.876,19.969L9.121,19.969A1.4,1.4 0,0 1,7.727 18.577L7.727,11.416A2.5,2.5 0,0 1,8.466 9.73L13.013,6.412a1.467,1.467 0,0 1,1.974 0L19.533,9.73a2.5,2.5 0,0 1,0.739 1.682v7.161A1.4,1.4 0,0 1,18.876 19.969ZM13.193,12.564a0.5,0.5 0,0 0,-0.5 0.5L12.693,16.42a0.5,0.5 0,0 0,0.5 0.5L14.806,16.92a0.5,0.5 0,0 0,0.5 -0.5L15.306,13.064a0.5,0.5 0,0 0,-0.5 -0.5Z\" fill=\"#fff\" />\n</svg>",
   "ic_tab_profile": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"19.0\" height=\"19.0\" viewBox=\"0 0 19.0 19.0\">\n  <path d=\"M15.842,12.543a12,12 0,0 0,-12.56 0A2.459,2.459 0,0 0,2.159 14.617v3.521L16.964,18.138L16.964,14.617A2.46,2.46 0,0 0,15.842 12.543Z\" fill=\"#000000\" fill-opacity=\"0.4\" />\n  <path d=\"M12.615,2.129a4.318,4.318 0,1 1,-6.107 0,4.318 4.318,0 0,1 6.107,0\" fill=\"#000000\" fill-opacity=\"0.4\" />\n</svg>",
-  "ic_tab_profile_active": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28.0\" height=\"28.0\" viewBox=\"0 0 28.0 28.0\">\n  <path d=\"M14,14m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0\" fill=\"#185ece\" stroke=\"#000000\" stroke-width=\"1.0\" />\n  <path d=\"M14,14m-13.5,0a13.5,13.5 0,1 1,27 0a13.5,13.5 0,1 1,-27 0\" fill=\"#000000\" fill-opacity=\"0\" stroke=\"#fafafa\" stroke-width=\"1.0\" />\n  <path d=\"M19.005,15.902a9.472,9.472 0,0 0,-9.916 0A1.942,1.942 0,0 0,8.205 17.539L8.205,20.32L19.893,20.32v-2.779A1.942,1.942 0,0 0,19.005 15.902Z\" fill=\"#fff\" />\n  <path d=\"M16.459,7.681a3.409,3.409 0,1 1,-4.821 0,3.409 3.409,0 0,1 4.821,0\" fill=\"#fff\" />\n</svg>"
+  "ic_tab_profile_active": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28.0\" height=\"28.0\" viewBox=\"0 0 28.0 28.0\">\n  <path d=\"M14,14m-14,0a14,14 0,1 1,28 0a14,14 0,1 1,-28 0\" fill=\"#185ece\" stroke=\"#000000\" stroke-width=\"1.0\" />\n  <path d=\"M14,14m-13.5,0a13.5,13.5 0,1 1,27 0a13.5,13.5 0,1 1,-27 0\" fill=\"#000000\" fill-opacity=\"0\" stroke=\"#fafafa\" stroke-width=\"1.0\" />\n  <path d=\"M19.005,15.902a9.472,9.472 0,0 0,-9.916 0A1.942,1.942 0,0 0,8.205 17.539L8.205,20.32L19.893,20.32v-2.779A1.942,1.942 0,0 0,19.005 15.902Z\" fill=\"#fff\" />\n  <path d=\"M16.459,7.681a3.409,3.409 0,1 1,-4.821 0,3.409 3.409,0 0,1 4.821,0\" fill=\"#fff\" />\n</svg>",
+  "ic_app_news": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32.0\" height=\"32.0\" viewBox=\"0 0 32.0 32.0\">\n  <circle cx=\"16\" cy=\"16\" r=\"16\" fill=\"#e6edf7\" />\n  <path d=\"M8 9h16v14H8z\" fill=\"#0066CC\" rx=\"2\" />\n  <path d=\"M11 12h5v5h-5z\" fill=\"#b9d4ff\" />\n  <path d=\"M18 12h4v1.5h-4zM18 15.5h4v1.5h-4zM11 19h11v1.5H11z\" fill=\"#ffffff\" />\n</svg>",
+  "ic_app_star_ave": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32.0\" height=\"32.0\" viewBox=\"0 0 32.0 32.0\">\n  <circle cx=\"16\" cy=\"16\" r=\"16\" fill=\"#e6edf7\" />\n  <circle cx=\"16\" cy=\"14\" r=\"7\" fill=\"#0066CC\" />\n  <path d=\"M16 9.5l1.5 3 3.5.5-2.5 2.5.6 3.5-3.1-1.6-3.1 1.6.6-3.5-2.5-2.5 3.5-.5z\" fill=\"#ffd700\" />\n  <path d=\"M13 20l3 2 3-2v5l-3-1.5L13 25z\" fill=\"#0066CC\" />\n</svg>",
+  "ic_app_employee_info": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32.0\" height=\"32.0\" viewBox=\"0 0 32.0 32.0\">\n  <circle cx=\"16\" cy=\"16\" r=\"16\" fill=\"#e6edf7\" />\n  <path d=\"M7 10a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V10z\" fill=\"#0066CC\" />\n  <path d=\"M10 13h12v7H10z\" fill=\"#b9d4ff\" />\n  <circle cx=\"13\" cy=\"16.5\" r=\"1.5\" fill=\"#0066CC\" />\n  <path d=\"M16 16h4v1h-4zM16 18h3v1h-3z\" fill=\"#0066CC\" />\n</svg>",
+  "ic_app_game": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32.0\" height=\"32.0\" viewBox=\"0 0 32.0 32.0\">\n  <circle cx=\"16\" cy=\"16\" r=\"16\" fill=\"#e6edf7\" />\n  <path d=\"M11 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\" fill=\"#0066CC\" />\n  <path d=\"M6 22a5 5 0 0 1 10 0H6zm10 0a5 5 0 0 1 10 0h-10z\" fill=\"#0066CC\" />\n</svg>"
 };
 
 export function SvgIcon({ name, width = 24, height = 24, color = '#0066CC', style }) {
@@ -76,6 +80,10 @@ export function SvgIcon({ name, width = 24, height = 24, color = '#0066CC', styl
     ic_app_fpt_dating: { type: 'ion', icon: 'heart-half-outline' },
     ic_app_payslip: { type: 'ion', icon: 'wallet-outline' },
     ic_app_birthday: { type: 'mci', icon: 'cake' },
+    ic_app_news: { type: 'ion', icon: 'newspaper-outline' },
+    ic_app_star_ave: { type: 'ion', icon: 'ribbon-outline' },
+    ic_app_employee_info: { type: 'ion', icon: 'folder-open-outline' },
+    ic_app_game: { type: 'ion', icon: 'people-outline' },
     ic_camera_avatar: { type: 'ion', icon: 'camera' },
     ic_menu_my_profile: { type: 'ion', icon: 'person' },
     ic_menu_settings: { type: 'ion', icon: 'settings-sharp' },
@@ -89,10 +97,37 @@ export function SvgIcon({ name, width = 24, height = 24, color = '#0066CC', styl
   };
 
   const fallback = vectorMap[name] || { type: 'ion', icon: 'help-circle-outline' };
+  const isTabActive = name && name.endsWith('_active');
+
+  let iconNode = null;
   if (fallback.type === 'mci') {
-    return <MaterialCommunityIcons name={fallback.icon} size={width} color={color} style={style} />;
+    iconNode = <MaterialCommunityIcons name={fallback.icon} size={isTabActive ? 16 : width} color={isTabActive ? '#FFFFFF' : color} style={style} />;
+  } else {
+    iconNode = <Ionicons name={fallback.icon} size={isTabActive ? 16 : width} color={isTabActive ? '#FFFFFF' : color} style={style} />;
   }
-  return <Ionicons name={fallback.icon} size={width} color={color} style={style} />;
+
+  if (isTabActive) {
+    return (
+      <View
+        style={[
+          {
+            width: width || 28,
+            height: height || 28,
+            borderRadius: (width || 28) / 2,
+            backgroundColor: '#0066CC',
+            justify: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          style,
+        ]}
+      >
+        {iconNode}
+      </View>
+    );
+  }
+
+  return iconNode;
 }
 
 export default SvgIcon;

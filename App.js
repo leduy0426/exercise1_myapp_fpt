@@ -62,8 +62,8 @@ export default function App() {
         >
           <SvgIcon
             name={currentTab === 'Home' ? 'ic_tab_home_active' : 'ic_tab_home'}
-            width={24}
-            height={24}
+            width={currentTab === 'Home' ? 28 : 24}
+            height={currentTab === 'Home' ? 28 : 24}
             color={currentTab === 'Home' ? '#0066CC' : '#8E8E93'}
           />
           <Text style={[styles.navText, currentTab === 'Home' && styles.navTextActive]}>
@@ -78,8 +78,8 @@ export default function App() {
         >
           <SvgIcon
             name={currentTab === 'AllApps' ? 'ic_tab_all_apps_active' : 'ic_tab_all_apps'}
-            width={24}
-            height={24}
+            width={currentTab === 'AllApps' ? 28 : 24}
+            height={currentTab === 'AllApps' ? 28 : 24}
             color={currentTab === 'AllApps' ? '#0066CC' : '#8E8E93'}
           />
           <Text style={[styles.navText, currentTab === 'AllApps' && styles.navTextActive]}>
@@ -94,8 +94,8 @@ export default function App() {
         >
           <SvgIcon
             name={currentTab === 'Gold' ? 'ic_tab_gold_active' : 'ic_tab_gold'}
-            width={24}
-            height={24}
+            width={currentTab === 'Gold' ? 28 : 24}
+            height={currentTab === 'Gold' ? 28 : 24}
             color={currentTab === 'Gold' ? '#0066CC' : '#8E8E93'}
           />
           <Text style={[styles.navText, currentTab === 'Gold' && styles.navTextActive]}>
@@ -110,8 +110,8 @@ export default function App() {
         >
           <SvgIcon
             name={currentTab === 'Game' ? 'ic_tab_game_active' : 'ic_tab_game'}
-            width={24}
-            height={24}
+            width={currentTab === 'Game' ? 28 : 24}
+            height={currentTab === 'Game' ? 28 : 24}
             color={currentTab === 'Game' ? '#0066CC' : '#8E8E93'}
           />
           <Text style={[styles.navText, currentTab === 'Game' && styles.navTextActive]}>
@@ -126,8 +126,8 @@ export default function App() {
         >
           <SvgIcon
             name={currentTab === 'Profile' ? 'ic_tab_profile_active' : 'ic_tab_profile'}
-            width={24}
-            height={24}
+            width={currentTab === 'Profile' ? 28 : 24}
+            height={currentTab === 'Profile' ? 28 : 24}
             color={currentTab === 'Profile' ? '#0066CC' : '#8E8E93'}
           />
           <Text style={[styles.navText, currentTab === 'Profile' && styles.navTextActive]}>
@@ -173,7 +173,7 @@ function AllAppsScreen() {
     {
       id: '5',
       title: 'My Tasks',
-      desc: 'Track daily personal tasks, workflows, and assignment status',
+      desc: '',
       iconName: 'ic_app_my_tasks',
     },
   ];
@@ -182,7 +182,7 @@ function AllAppsScreen() {
     {
       id: '6',
       title: 'FPT Care',
-      desc: 'FPT Care insurance details and medical coverage',
+      desc: 'FPT Care',
       iconName: 'ic_app_fpt_care',
     },
     {
@@ -200,20 +200,53 @@ function AllAppsScreen() {
     {
       id: '9',
       title: 'FPT Dating',
-      desc: 'Dating feature and social networking within company',
+      desc: 'Dating feature.',
       iconName: 'ic_app_fpt_dating',
     },
     {
       id: '10',
       title: 'Payslip',
-      desc: 'Monthly payslip and compensation statements',
+      desc: 'Payslip',
       iconName: 'ic_app_payslip',
     },
     {
       id: '11',
       title: 'Birthday',
-      desc: 'Your birthday is a special moment. We are very happy to send the best wishes for you.',
+      desc: "Your birthday is a special moment. We're very happy to send the best wishes for you. Colleagues can send you birthday wishes on myFPT.",
       iconName: 'ic_app_birthday',
+    },
+  ];
+
+  const newsItems = [
+    {
+      id: '12',
+      title: 'News',
+      desc: 'A collection of latest news and notable events around the company',
+      iconName: 'ic_app_news',
+    },
+    {
+      id: '13',
+      title: 'Star Ave',
+      desc: 'Recognise notable achievements within a business unit or within FPT',
+      iconName: 'ic_app_star_ave',
+    },
+  ];
+
+  const wikiItems = [
+    {
+      id: '14',
+      title: 'Employee Info',
+      desc: 'Basic, non-confidential employee information (name, gender, department, etc.)',
+      iconName: 'ic_app_employee_info',
+    },
+  ];
+
+  const gameItems = [
+    {
+      id: '15',
+      title: 'Game',
+      desc: 'Community-engaging games with Gold as rewards',
+      iconName: 'ic_app_game',
     },
   ];
 
@@ -223,12 +256,22 @@ function AllAppsScreen() {
     return items.filter(
       (item) =>
         item.title.toLowerCase().includes(query) ||
-        item.desc.toLowerCase().includes(query)
+        (item.desc && item.desc.toLowerCase().includes(query))
     );
   };
 
   const filteredWork = filterItems(workItems);
   const filteredUtilities = filterItems(utilityItems);
+  const filteredNews = filterItems(newsItems);
+  const filteredWiki = filterItems(wikiItems);
+  const filteredGame = filterItems(gameItems);
+
+  const hasAnyMatches =
+    filteredWork.length > 0 ||
+    filteredUtilities.length > 0 ||
+    filteredNews.length > 0 ||
+    filteredWiki.length > 0 ||
+    filteredGame.length > 0;
 
   const renderItem = (item) => (
     <TouchableOpacity key={item.id} style={styles.appRow} activeOpacity={0.7}>
@@ -237,9 +280,11 @@ function AllAppsScreen() {
       </View>
       <View style={styles.appContent}>
         <Text style={styles.appTitle}>{item.title}</Text>
-        <Text style={styles.appDesc} numberOfLines={2}>
-          {item.desc}
-        </Text>
+        {item.desc ? (
+          <Text style={styles.appDesc} numberOfLines={2}>
+            {item.desc}
+          </Text>
+        ) : null}
       </View>
     </TouchableOpacity>
   );
@@ -294,7 +339,37 @@ function AllAppsScreen() {
         </>
       )}
 
-      {filteredWork.length === 0 && filteredUtilities.length === 0 && (
+      {/* Group NEWS */}
+      {filteredNews.length > 0 && (
+        <>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionHeaderText}>NEWS</Text>
+          </View>
+          {filteredNews.map(renderItem)}
+        </>
+      )}
+
+      {/* Group WIKI */}
+      {filteredWiki.length > 0 && (
+        <>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionHeaderText}>WIKI</Text>
+          </View>
+          {filteredWiki.map(renderItem)}
+        </>
+      )}
+
+      {/* Group GAME */}
+      {filteredGame.length > 0 && (
+        <>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionHeaderText}>GAME</Text>
+          </View>
+          {filteredGame.map(renderItem)}
+        </>
+      )}
+
+      {!hasAnyMatches && (
         <View style={styles.emptyState}>
           <SvgIcon name="ic_search" width={48} height={48} color="#C7C7CC" />
           <Text style={styles.emptyText}>No features match "{searchQuery}"</Text>
