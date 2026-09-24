@@ -276,7 +276,7 @@ function AllAppsScreen() {
   const renderItem = (item) => (
     <TouchableOpacity key={item.id} style={styles.appRow} activeOpacity={0.7}>
       <View style={styles.appIconWrapper}>
-        <SvgIcon name={item.iconName} width={26} height={26} color="#0066CC" />
+        <SvgIcon name={item.iconName} width={26} height={26} />
       </View>
       <View style={styles.appContent}>
         <Text style={styles.appTitle}>{item.title}</Text>
@@ -424,7 +424,6 @@ function ProfileScreen() {
                 name={item.iconName}
                 width={22}
                 height={22}
-                color="#0066CC"
                 style={styles.menuIcon}
               />
               <Text style={styles.menuText}>{item.title}</Text>
