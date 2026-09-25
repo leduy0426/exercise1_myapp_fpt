@@ -125,7 +125,7 @@ export default function App() {
           activeOpacity={0.7}
         >
           <SvgIcon
-            name={currentTab === 'Profile' ? 'ic_tab_profile_active' : 'ic_tab_profile'}
+            name={currentTab === 'Profile' ? 'ic_icon_bot_nav_profile_active' : 'ic_icon_bot_nav_profile'}
             width={currentTab === 'Profile' ? 28 : 24}
             height={currentTab === 'Profile' ? 28 : 24}
             color={currentTab === 'Profile' ? '#0066CC' : '#8E8E93'}
