@@ -47,6 +47,7 @@ export const SVG_ICONS = {
   "ic_search": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24.0\" height=\"24.0\" viewBox=\"0 0 24.0 24.0\">\n    <path d=\"M15.5,14h-0.79l-0.28,-0.27C15.41,12.59 16,11.11 16,9.5 16,5.91 13.09,3 9.5,3S3,5.91 3,9.5 5.91,16 9.5,16c1.61,0 3.09,-0.59 4.23,-1.57l0.27,0.28v0.79l5,4.99L20.49,19l-4.99,-5zM9.5,14C7.01,14 5,11.99 5,9.5S7.01,5 9.5,5 14,7.01 14,9.5 11.99,14 9.5,14z\" fill=\"#000000\" />\n</svg>",
   "ic_grid": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20.0\" height=\"20.0\" viewBox=\"0 0 20.0 20.0\">\n    <path d=\"M9.111,2.037A0.37,0.37 0,0 0,8.741 1.667L2.037,1.667A0.37,0.37 0,0 0,1.667 2.037v6.7a0.37,0.37 0,0 0,0.37 0.37h6.7a0.37,0.37 0,0 0,0.37 -0.37ZM8.367,8.367L2.408,8.367L2.408,2.408L8.367,2.408ZM8.367,8.367\" fill=\"#666\" stroke=\"#666\" stroke-width=\"0.6\" />\n  <path d=\"M18.333,2.037a0.37,0.37 0,0 0,-0.37 -0.37h-6.7a0.37,0.37 0,0 0,-0.37 0.37v6.7a0.37,0.37 0,0 0,0.37 0.37h6.7a0.37,0.37 0,0 0,0.37 -0.37ZM17.593,8.367h-5.963L11.63,2.408h5.963ZM17.593,8.367\" fill=\"#666\" stroke=\"#666\" stroke-width=\"0.6\" />\n  <path d=\"M9.111,11.259a0.37,0.37 0,0 0,-0.37 -0.37L2.037,10.889a0.37,0.37 0,0 0,-0.37 0.37v6.7a0.37,0.37 0,0 0,0.37 0.37h6.7a0.37,0.37 0,0 0,0.37 -0.37ZM8.37,17.559L2.408,17.559v-5.926L8.367,11.633ZM8.37,17.559\" fill=\"#666\" stroke=\"#666\" stroke-width=\"0.6\" />\n  <path d=\"M18.333,11.259a0.37,0.37 0,0 0,-0.37 -0.37h-6.7a0.37,0.37 0,0 0,-0.37 0.37v6.7a0.37,0.37 0,0 0,0.37 0.37h6.7a0.37,0.37 0,0 0,0.37 -0.37ZM17.592,17.559h-5.963v-5.926h5.963ZM17.592,17.559\" fill=\"#666\" stroke=\"#666\" stroke-width=\"0.6\" />\n</svg>",
   "ic_arrow_next_non_circle": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"36.0\" height=\"36.0\" viewBox=\"0 0 36.0 36.0\">\n    <path d=\"M14.276,12.255a0.777,0.777 0,0 1,0.482 0.169L22.207,18.416a0.768,0.768 0,0 1,0 1.2L14.789,25.574A0.768,0.768 0,0 1,13.827 24.377L20.5,19.014 13.794,13.621a0.767,0.767 0,0 1,0.482 -1.366Z\" fill=\"#b3b3b3\" fill-opacity=\"0.65\" />\n</svg>",
+  "ic_arrow_right_16": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16.0\" height=\"17.0\" viewBox=\"0 0 16.0 17.0\">\n  <path d=\"M6,12.241L9.293,8.948C9.626,8.614 9.793,8.448 9.793,8.24C9.793,8.033 9.626,7.867 9.293,7.533L6,4.24\" fill=\"none\" stroke=\"#737373\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" />\n</svg>",
   "ic_chevron_right": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"36.0\" height=\"36.0\" viewBox=\"0 0 36.0 36.0\">\n    <path d=\"M14.276,12.255a0.777,0.777 0,0 1,0.482 0.169L22.207,18.416a0.768,0.768 0,0 1,0 1.2L14.789,25.574A0.768,0.768 0,0 1,13.827 24.377L20.5,19.014 13.794,13.621a0.767,0.767 0,0 1,0.482 -1.366Z\" fill=\"#b3b3b3\" fill-opacity=\"0.65\" />\n</svg>"
 };
 
@@ -56,6 +57,7 @@ export function SvgIcon({ name, width = 24, height = 24, color, style }) {
   if (SvgXml && xml) {
     if (color) {
       xml = xml.replace(/fill="#[0-9a-fA-F]{6}"/g, `fill="${color}"`);
+      xml = xml.replace(/stroke="#[0-9a-fA-F]{6}"/g, `stroke="${color}"`);
     }
     return <SvgXml xml={xml} width={width} height={height} style={style} />;
   }
@@ -98,6 +100,7 @@ export function SvgIcon({ name, width = 24, height = 24, color, style }) {
     ic_icon_bot_nav_profile_active: { type: 'ion', icon: 'person' },
     ic_icon_bot_nav_profile: { type: 'ion', icon: 'person-outline' },
     ic_arrow_next_non_circle: { type: 'ion', icon: 'chevron-forward' },
+    ic_arrow_right_16: { type: 'ion', icon: 'chevron-forward' },
     ic_chevron_right: { type: 'ion', icon: 'chevron-forward' },
     ic_search: { type: 'ion', icon: 'search' },
     ic_grid: { type: 'ion', icon: 'grid-outline' },
