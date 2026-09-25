@@ -428,7 +428,7 @@ function ProfileScreen() {
               />
               <Text style={styles.menuText}>{item.title}</Text>
             </View>
-            <SvgIcon name="ic_chevron_right" width={22} height={22} color="#C7C7CC" />
+            <SvgIcon name="ic_arrow_next_non_circle" width={22} height={22} color="#C7C7CC" />
           </TouchableOpacity>
         ))}
       </View>
