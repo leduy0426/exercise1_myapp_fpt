@@ -411,8 +411,8 @@ function ProfileScreen() {
 
       {/* User Info */}
       <View style={styles.userInfoBox}>
-        <Text style={styles.userName}>Phạm Quang Khang (KHANGPQ3)</Text>
-        <Text style={styles.userRole}>(BM SE)</Text>
+        <Text style={styles.userName}>Lê Duy (DUYLHE194188)</Text>
+        <Text style={styles.userRole}>(Student)</Text>
       </View>
 
       {/* Menu List */}
