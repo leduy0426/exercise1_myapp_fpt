@@ -45,3 +45,6 @@ yarn-error.*
 
 # raw decompiled assets
 /assets
+
+# raw png assets
+/png
